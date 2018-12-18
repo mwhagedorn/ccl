@@ -21,6 +21,15 @@ Or install it yourself as:
 ## Usage
 
     $ ccl
+    Commands:
+    ccl customers                                                                                           # Lists customers for a subdo...
+    ccl help [COMMAND]                                                                                      # Describe available commands...
+    ccl payment-profiles SUBCOMMAND                                                                         # manage payment profiles for...
+    ccl payment-profiles create_bank CUSTOMER_ID BANK_NAME BANK_ROUTING_NUMBER BANK_ACCOUNT_NUMBER          # Create payment_profile
+    ccl payment-profiles help [COMMAND]                                                                     # Describe subcommands or one...
+    ccl payment-profiles list                                                                               # list payment_profiles
+    ccl payment-profiles update ID BILLING_ADDRESS BILLING_CITY BILLING_STATE BILLING ZIP, BILLING_COUNTRY  # Update payment profile
+    ccl subscriptions
 
 ## Development
 
