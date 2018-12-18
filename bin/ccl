@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'ccl'
+require 'ccl/cli'
+
+Ccl::CLI.start(ARGV)
+
