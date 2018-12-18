@@ -1,6 +1,6 @@
 # Chargify Command Line Client (ccl)
 
-Uses API v1 to talk to chargify
+Uses API v1 to talk to chargify.  Pre alpha quality.   Would need a lot more work to be something real.  Works for a test case I was evaluating.
 
 ## Installation
 
