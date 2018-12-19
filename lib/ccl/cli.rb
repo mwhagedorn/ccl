@@ -38,6 +38,17 @@ module Ccl
     end
 
     class PaymentProfiles < SubCommandBase
+
+      desc "show ID", "Shows the given PaymentProfile"
+      def show(the_id)
+        payment_profile = Chargify::PaymentProfile.find(the_id)
+        if payment_profile
+          puts payment_profile.to_json
+          return
+        end
+        say("Not Found", :red)
+      end
+
       desc "list", "list payment_profiles"
       def list
         payment_profiles = Chargify::PaymentProfile.find(:all)
@@ -46,7 +57,7 @@ module Ccl
 
       desc "create_bank CUSTOMER_ID BANK_NAME BANK_ROUTING_NUMBER BANK_ACCOUNT_NUMBER ", "Create payment_profile"
       method_option :bank_account_type, type: :string, default:'checking', option: :required
-      method_option :bank_account_holder_type, type: :string, default: 'business'
+      method_option :bank_account_holder_type, type: :string, default: 'personal'
       def create_bank(customer_id, bank_name, bank_routing_number, bank_account_number)
 
         pmt_profile = Chargify::PaymentProfile.create(
@@ -82,8 +93,11 @@ module Ccl
             billing_country: billing_country,
             billing_address2: nil
           )
-          pp.save
-          puts pp.to_json
+          if pp.save
+            puts pp.to_json
+          else
+            puts pp.errors.to_json
+          end
         end
 
       end
